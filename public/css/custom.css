@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap');
+
+:root {
+  --primary:        #009688;
+  --primary-dark:   #00796b;
+  --primary-light:  #b2dfdb;
+  --accent:         #00bcd4;
+
+  --text-primary:   #212121;
+  --text-secondary: #757575;
+
+  --divider:        #e0e0e0;
+  --white:          #ffffff;
+  --bg-page:        #f4f6f5;
+
+  --radius: 14px;
+  --shadow-soft: 0 4px 12px rgba(0,0,0,0.04);
+  --shadow-hover: 0 10px 24px rgba(0,0,0,0.08);
+}
+:root {
+  --font-heading: 'Poppins', sans-serif;
+  --font-body:    'Open Sans', sans-serif;
+  --border-radius: 12px;
+  --card-shadow:   0 6px 14px rgba(0,0,0,0.04), 0 2px 4px rgba(0,0,0,0.02);
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+p {
+  font-size: 0.95rem;
+}
+
+/* Links */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+a:hover {
+  opacity: 0.8;
+}
+
+
+header {
+  background-color: #ffffff !important;  /* white, or use a light gray like #f8f9fa */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+header h1 a,
+header nav a {
+  color: var(--text-primary) !important;  /* dark text for contrast */
+  font-weight: 700;
+  transition: color 0.2s;
+}
+header nav a:hover {
+  color: var(--accent) !important;        /* accent on hover */
+}
+
+/* If you want the "Post a Job" button to still pop, keep its current style */
+.bg-yellow-500,
+.bg-blue-500 {
+  background-color: var(--accent) !important;
+  color: var(--white) !important;
+  /* ... rest of button styles unchanged ... */
+}
+/* Make logo font size match button text */
+.logo-btn {
+  font-size: 2rem; /* adjust to your preferred size; buttons typically use 1rem */
+}
+
+
+.bg-yellow-500,
+.bg-blue-500 {
+  background-color: var(--accent) !important;
+  border-radius: var(--border-radius) !important;
+  color: var(--white) !important;
+  transition: all 0.2s;
+  font-weight: 600;
+}
+.bg-yellow-500:hover,
+.bg-blue-500:hover {
+  background-color: var(--primary-dark) !important; /* darker shade */
+  color: var(--white) !important;                  /* keep text white */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);         /* optional subtle shadow */
+  /* no transform, no filter */
+}
+
+
+.showcase {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background: url('../images/Corporate Meeting Insight.jpg') center/cover no-repeat;
+}
+
+/* Smooth overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+}
+
+/* Content */
+.showcase h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--white);
+  z-index: 2;
+}
+
+.showcase p {
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  z-index: 2;
+}
+
+/* Search */
+.showcase input {
+  border-radius: var(--radius);
+  border: none;
+  padding: 0.9rem;
+  width: 250px;
+  box-shadow: var(--shadow-soft);
+}
+
+.showcase button {
+  background: var(--accent);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.9rem 1.4rem;
+  margin-left: 0.5rem;
+  font-weight: 600;
+}
+
+
+.bg-blue-900 {
+  background: var(--primary-light);
+  border-bottom: 1px solid var(--divider);
+}
+
+.bg-blue-900 h2 {
+  color: var(--text-primary);
+}
+
+.bg-blue-900 p {
+  color: var(--text-secondary);
+}
+
+.bg-white {
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--divider);
+  box-shadow: var(--shadow-soft);
+  padding: 1.5rem;
+  transition: 0.25s ease;
+}
+
+.bg-white:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+.bg-white h2 {
+  font-size: 1.3rem;
+}
+
+/* Job details */
+.bg-white ul {
+  background: #fafafa;
+  border-radius: 10px;
+  padding: 1rem;
+  border: 1px solid var(--divider);
+}
+
+/* Tags */
+.text-xs.bg-blue-500,
+.text-xs.bg-green-100 {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  padding: 0.25rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* Details button */
+.bg-indigo-100 {
+  background: #f7f7f7;
+  border: 1px solid var(--divider);
+  border-radius: var(--radius);
+  padding: 0.7rem;
+  text-align: center;
+  font-weight: 600;
+  color: var(--primary-dark);
+  transition: 0.2s ease;
+}
+
+.bg-indigo-100:hover {
+  background: var(--primary-dark);
+  color: var(--white);
+}
+
+
+.bg-blue-800 {
+  background: var(--primary-dark);
+  border-radius: 16px;
+}
+
+.bg-blue-800 h2,
+.bg-blue-800 p {
+  color: var(--white);
+}
+
+.bg-blue-800 a {
+  background: var(--accent);
+  color: var(--white);
+  border-radius: var(--radius);
+  padding: 0.7rem 1.2rem;
+}
+
+input, select, textarea {
+  border-radius: var(--radius);
+  border: 1px solid var(--divider);
+  padding: 0.7rem;
+  width: 100%;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(0,188,212,0.15);
+  outline: none;
+}
+
+
+hr {
+  border: none;
+  border-top: 1px solid var(--divider);
+}
+
+::selection {
+  background: var(--primary-light);
+}
