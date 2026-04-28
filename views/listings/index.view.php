@@ -1,11 +1,12 @@
-<?php
-    require '../helpers.php';
-    loadPartials('head');
-    loadPartials('navbar');
-    loadPartials('showcase');
-    loadPartials('topbanner');
 
+<?php 
 
+    loadPartial('head');
+
+    loadPartial('navbar'); 
+
+    loadPartial('topbanner'); 
+    
 ?>
 
     <!-- Job Listings -->
@@ -192,16 +193,8 @@
             </div>
           </div>
         </div>
-        <a href="listings.html" class="block text-xl text-center">
-          <i class="fa fa-arrow-alt-circle-right"></i>
-          Show All Jobs
-        </a>
-      </section>
 
-       <!-- Bottom Banner -->
-
-    <?php
-    require basePath('views/partials/bottombanner.php');
-    require basePath('views/partials/footer.php');
-    ?>
+   <?php loadPartial('bottombanner'); ?>
+    <?php loadPartial('footer'); ?>  
+     
 

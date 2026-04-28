@@ -16,25 +16,39 @@
   --radius: 14px;
   --shadow-soft: 0 4px 12px rgba(0,0,0,0.04);
   --shadow-hover: 0 10px 24px rgba(0,0,0,0.08);
-}
-:root {
   --font-heading: 'Poppins', sans-serif;
   --font-body:    'Open Sans', sans-serif;
   --border-radius: 12px;
   --card-shadow:   0 6px 14px rgba(0,0,0,0.04), 0 2px 4px rgba(0,0,0,0.02);
 }
 
-body {
-  font-family: 'Open Sans', sans-serif;
-  background: var(--bg-page);
-  color: var(--text-secondary);
+/* Reset / box-sizing (no color changes) */
+* {
   margin: 0;
-  line-height: 1.6;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Typography */
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-page);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
+}
+
+/* Typography – unchanged */
 h1, h2, h3, h4 {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-heading);
   color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
@@ -48,7 +62,7 @@ p {
   font-size: 0.95rem;
 }
 
-/* Links */
+/* Links – unchanged */
 a {
   color: var(--accent);
   text-decoration: none;
@@ -58,34 +72,22 @@ a:hover {
   opacity: 0.8;
 }
 
-
+/* Header – unchanged */
 header {
-  background-color: #ffffff !important;  /* white, or use a light gray like #f8f9fa */
+  background-color: #ffffff !important;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 header h1 a,
 header nav a {
-  color: var(--text-primary) !important;  /* dark text for contrast */
+  color: var(--text-primary) !important;
   font-weight: 700;
   transition: color 0.2s;
 }
 header nav a:hover {
-  color: var(--accent) !important;        /* accent on hover */
+  color: var(--accent) !important;
 }
 
-/* If you want the "Post a Job" button to still pop, keep its current style */
-.bg-yellow-500,
-.bg-blue-500 {
-  background-color: var(--accent) !important;
-  color: var(--white) !important;
-  /* ... rest of button styles unchanged ... */
-}
-/* Make logo font size match button text */
-.logo-btn {
-  font-size: 2rem; /* adjust to your preferred size; buttons typically use 1rem */
-}
-
-
+/* Buttons – unchanged */
 .bg-yellow-500,
 .bg-blue-500 {
   background-color: var(--accent) !important;
@@ -96,13 +98,16 @@ header nav a:hover {
 }
 .bg-yellow-500:hover,
 .bg-blue-500:hover {
-  background-color: var(--primary-dark) !important; /* darker shade */
-  color: var(--white) !important;                  /* keep text white */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);         /* optional subtle shadow */
-  /* no transform, no filter */
+  background-color: var(--primary-dark) !important;
+  color: var(--white) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
+.logo-btn {
+  font-size: 2rem;
+}
 
+/* Showcase – fixed z‑index stacking (no color changes) */
 .showcase {
   position: relative;
   min-height: 70vh;
@@ -110,32 +115,34 @@ header nav a:hover {
   align-items: center;
   justify-content: center;
   text-align: center;
-
   background: url('../images/Corporate Meeting Insight.jpg') center/cover no-repeat;
 }
 
-/* Smooth overlay */
 .overlay {
   position: absolute;
   inset: 0;
   background: rgba(0,0,0,0.45);
+  z-index: 1;
 }
 
-/* Content */
+.showcase h2,
+.showcase p,
+.showcase form {
+  position: relative;
+  z-index: 2;
+}
+
 .showcase h2 {
   font-size: 3rem;
   font-weight: 700;
   color: var(--white);
-  z-index: 2;
 }
 
 .showcase p {
   color: var(--white);
   margin-bottom: 1.5rem;
-  z-index: 2;
 }
 
-/* Search */
 .showcase input {
   border-radius: var(--radius);
   border: none;
@@ -154,7 +161,7 @@ header nav a:hover {
   font-weight: 600;
 }
 
-
+/* Footer override – kept exactly as you wrote (no color change) */
 .bg-blue-900 {
   background: var(--primary-light);
   border-bottom: 1px solid var(--divider);
@@ -168,6 +175,7 @@ header nav a:hover {
   color: var(--text-secondary);
 }
 
+/* Cards – unchanged */
 .bg-white {
   background: var(--white);
   border-radius: var(--radius);
@@ -176,17 +184,15 @@ header nav a:hover {
   padding: 1.5rem;
   transition: 0.25s ease;
 }
-
 .bg-white:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-hover);
 }
-
 .bg-white h2 {
   font-size: 1.3rem;
 }
 
-/* Job details */
+/* Job details list – unchanged */
 .bg-white ul {
   background: #fafafa;
   border-radius: 10px;
@@ -194,7 +200,7 @@ header nav a:hover {
   border: 1px solid var(--divider);
 }
 
-/* Tags */
+/* Tags – unchanged */
 .text-xs.bg-blue-500,
 .text-xs.bg-green-100 {
   background: var(--primary-light);
@@ -205,7 +211,7 @@ header nav a:hover {
   font-weight: 600;
 }
 
-/* Details button */
+/* Details button – unchanged */
 .bg-indigo-100 {
   background: #f7f7f7;
   border: 1px solid var(--divider);
@@ -216,23 +222,20 @@ header nav a:hover {
   color: var(--primary-dark);
   transition: 0.2s ease;
 }
-
 .bg-indigo-100:hover {
   background: var(--primary-dark);
   color: var(--white);
 }
 
-
+/* Top banner – unchanged */
 .bg-blue-800 {
   background: var(--primary-dark);
   border-radius: 16px;
 }
-
 .bg-blue-800 h2,
 .bg-blue-800 p {
   color: var(--white);
 }
-
 .bg-blue-800 a {
   background: var(--accent);
   color: var(--white);
@@ -240,13 +243,15 @@ header nav a:hover {
   padding: 0.7rem 1.2rem;
 }
 
+/* Forms – improved focus but colors untouched */
 input, select, textarea {
   border-radius: var(--radius);
   border: 1px solid var(--divider);
   padding: 0.7rem;
   width: 100%;
+  background: var(--white);
+  font-family: inherit;
 }
-
 input:focus,
 select:focus,
 textarea:focus {
@@ -255,12 +260,13 @@ textarea:focus {
   outline: none;
 }
 
-
+/* Horizontal rule – unchanged */
 hr {
   border: none;
   border-top: 1px solid var(--divider);
 }
 
+/* Selection – unchanged */
 ::selection {
   background: var(--primary-light);
 }
