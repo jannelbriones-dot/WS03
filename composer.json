@@ -1,0 +1,16 @@
+{
+    "name": "jannelbriones-dot/ws03",
+    "description": "Job Seeker Application",
+    "authors": [
+        {
+            "name": "Jannel Briones",
+            "email": "jannel.briones@example.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "framework\\": "framework/",
+            "App\\": "App/"
+        }
+    }
+}

@@ -1,31 +1,33 @@
 <?php
+
 define('BASE_PATH', dirname(__DIR__));
 
+require __DIR__ . '/../vendor/autoload.php';
 require '../helpers.php';
-require basePath('Router.php');
+
+use framework\Router;
+use framework\Session;
+
+Session::start();
 
 $router = new Router();
 
 // Load routes
-$routes = require basePath('routes.php');
+require basePath('routes.php');
 
-// Get current URI and method
-$uri = $_SERVER['REQUEST_URI'];
+// Get URI
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $method = $_SERVER['REQUEST_METHOD'];
 
-// Remove query string from URI if present
-$uri = parse_url($uri, PHP_URL_PATH);
+// Remove base folder
+$basePath = '/WS03/public';
 
-// Strip the base path (e.g., /ws03/public) to get just the route
-$basePath = '/ws03/public';
 if (strpos($uri, $basePath) === 0) {
     $uri = substr($uri, strlen($basePath));
 }
 
-// Ensure URI starts with /
-if (empty($uri)) {
+if ($uri === '') {
     $uri = '/';
 }
 
-// Dispatch the router (THIS IS MISSING!)
-$router->route($uri, $method);
+$router->route($uri);

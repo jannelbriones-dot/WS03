@@ -1,15 +1,26 @@
-
 <?php
+    $router->get('/', 'HomeController@index');
+    $router->get('/listings', 'ListingController@index');
 
-// return[
-//     '/'=> 'controllers/home.php',
-//     '/listings' => 'controllers/listings.php',
-//     '/listings/create' => 'controllers/listings/create.php',
-//     '404' => 'controllers/404.php'
-// ];
+    // Search (must be above {id} route)
+    $router->get('/listings/search', 'ListingController@search');
 
-$router->get('/', 'controllers/home.php');
-$router->get('/listings', 'controllers/listings/index.php');
-$router->get('/listings/create', 'controllers/listings/create.php');
+    // Auth required routes
+    $router->get('/listings/create', 'ListingController@create', ['auth']);
+    $router->post('/listings', 'ListingController@store', ['auth']);
+    $router->get('/listings/edit/{id}', 'ListingController@edit', ['auth']);
+    $router->put('/listings/{id}', 'ListingController@update', ['auth']);
+    $router->delete('/listings/{id}', 'ListingController@destroy', ['auth']);
 
+    // Show single listing (public)
+    $router->get('/listings/{id}', 'ListingController@show');
+
+    // Guest only routes
+    $router->get('/register', 'UserController@create', ['guest']);
+    $router->post('/register', 'UserController@store', ['guest']);
+    $router->get('/login', 'UserController@login', ['guest']);
+    $router->post('/login', 'UserController@authenticate', ['guest']);
+
+    // Logout
+    $router->post('/logout', 'UserController@logout', ['auth']);
 ?>
